@@ -1,0 +1,33 @@
+import { useParams } from "react-router-dom";
+import programs from "../data/programs";
+
+function ProgramDetails() {
+  const { code } = useParams();
+
+  const program = programs.find(p => p.code === code);
+
+  if (!program) return <p>Program not found</p>;
+
+  return (
+    <div>
+      <h2>{program.name}</h2>
+      <p>{program.description}</p>
+      <p>Duration: {program.duration}</p>
+      <p>Total Units: {program.totalUnits}</p>
+
+      <h3>Year Levels</h3>
+      {Object.entries(program.yearLevels).map(([year, subjects]) => (
+        <div key={year}>
+          <h4>{year}</h4>
+          <ul>
+            {subjects.map((sub, index) => (
+              <li key={index}>{sub}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default ProgramDetails;

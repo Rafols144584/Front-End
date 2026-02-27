@@ -1,0 +1,30 @@
+import { useParams } from "react-router-dom";
+import subjects from "../data/subjects";
+
+function SubjectDetails() {
+  const { code } = useParams();
+
+  const subject = subjects.find(s => s.code === code);
+
+  if (!subject) return <p>Subject not found</p>;
+
+  return (
+    <div>
+      <h2>{subject.code} - {subject.title}</h2>
+      <p>Units: {subject.units}</p>
+      <p>Semester: {subject.semester}</p>
+      <p>Program: {subject.program}</p>
+      <p>Description: {subject.description}</p>
+
+      <p>
+        Pre-requisites: {subject.preReq.length > 0 ? subject.preReq.join(", ") : "None"}
+      </p>
+
+      <p>
+        Co-requisites: {subject.coReq.length > 0 ? subject.coReq.join(", ") : "None"}
+      </p>
+    </div>
+  );
+}
+
+export default SubjectDetails;

@@ -1,0 +1,33 @@
+const programs = [
+  {
+    id: 1,
+    code: "BSIT",
+    name: "Bachelor of Science in Information Technology",
+    type: "Bachelor",
+    duration: "4 Years",
+    totalUnits: 150,
+    status: "Active",
+    description: "Focuses on software development and IT infrastructure.",
+    yearLevels: {
+      "1st Year": ["IT101", "IT102"],
+      "2nd Year": ["IT201", "IT202"],
+      "3rd Year": ["IT301"],
+      "4th Year": ["IT401"]
+    },
+    createdAt: "2026-02-10"
+  },
+  {
+    id: 2,
+    code: "BSCS",
+    name: "Bachelor of Science in Computer Science",
+    type: "Bachelor",
+    duration: "4 Years",
+    totalUnits: 155,
+    status: "Under Review",
+    description: "Focuses on algorithms and computing theory.",
+    yearLevels: {},
+    createdAt: "2026-02-15"
+  }
+];
+
+export default programs;

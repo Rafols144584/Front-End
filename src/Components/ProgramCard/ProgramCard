@@ -1,0 +1,18 @@
+import { Link } from "react-router-dom";
+
+function ProgramCard({ program }) {
+  return (
+    <div className="card">
+      <h3>{program.code}</h3>
+      <p>{program.name}</p>
+      <p>Type: {program.type}</p>
+      <p>Status: {program.status}</p>
+
+      <Link to={`/programs/${program.code}`}>
+        View Details
+      </Link>
+    </div>
+  );
+}
+
+export default ProgramCard;

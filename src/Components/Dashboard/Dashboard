@@ -1,0 +1,26 @@
+import programs from "../data/programs";
+import subjects from "../data/subjects";
+
+function Dashboard() {
+  const totalPrograms = programs.length;
+  const totalSubjects = subjects.length;
+
+  const activePrograms = programs.filter(p => p.status === "Active").length;
+  const inactivePrograms = programs.length - activePrograms;
+
+  const subjectsWithPreReq = subjects.filter(s => s.preReq.length > 0).length;
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+
+      <p>Total Programs: {totalPrograms}</p>
+      <p>Total Subjects: {totalSubjects}</p>
+      <p>Active Programs: {activePrograms}</p>
+      <p>Inactive Programs: {inactivePrograms}</p>
+      <p>Subjects with Pre-req: {subjectsWithPreReq}</p>
+    </div>
+  );
+}
+
+export default Dashboard;

@@ -1,0 +1,32 @@
+import programs from "../data/programs";
+import ProgramCard from "./ProgramCard";
+import { useState } from "react";
+
+function ProgramList() {
+  const [search, setSearch] = useState("");
+
+  const filteredPrograms = programs.filter(p =>
+    p.code.toLowerCase().includes(search.toLowerCase()) ||
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div>
+      <h2>Program Offerings</h2>
+
+      <input
+        type="text"
+        placeholder="Search program..."
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <div>
+        {filteredPrograms.map(program => (
+          <ProgramCard key={program.id} program={program} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default ProgramList;

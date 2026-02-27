@@ -1,0 +1,30 @@
+import subjects from "../data/subjects";
+import SubjectCard from "./SubjectCard";
+import { useState } from "react";
+
+function SubjectList() {
+  const [search, setSearch] = useState("");
+
+  const filteredSubjects = subjects.filter(s =>
+    s.code.toLowerCase().includes(search.toLowerCase()) ||
+    s.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div>
+      <h2>Subject Offerings</h2>
+
+      <input
+        type="text"
+        placeholder="Search subject..."
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {filteredSubjects.map(subject => (
+        <SubjectCard key={subject.id} subject={subject} />
+      ))}
+    </div>
+  );
+}
+
+export default SubjectList;
